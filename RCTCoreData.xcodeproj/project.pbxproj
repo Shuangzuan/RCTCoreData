@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13BE3DEE1AC21097009241FE /* RCTCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE3DED1AC21097009241FE /* RCTCoreData.m */; };
 		141766F81B208D7700CCD6D9 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 141766F71B208D7700CCD6D9 /* CoreDataStack.m */; };
+		39E6B5B11B2181F20063612C /* RCTConvert+ManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E6B5B01B2181F20063612C /* RCTConvert+ManagedObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 		13BE3DED1AC21097009241FE /* RCTCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTCoreData.m; sourceTree = "<group>"; };
 		141766F61B208D7700CCD6D9 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		141766F71B208D7700CCD6D9 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		39E6B5AF1B2181F20063612C /* RCTConvert+ManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ManagedObject.h"; sourceTree = "<group>"; };
+		39E6B5B01B2181F20063612C /* RCTConvert+ManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ManagedObject.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,8 @@
 			children = (
 				13BE3DEC1AC21097009241FE /* RCTCoreData.h */,
 				13BE3DED1AC21097009241FE /* RCTCoreData.m */,
+				39E6B5AF1B2181F20063612C /* RCTConvert+ManagedObject.h */,
+				39E6B5B01B2181F20063612C /* RCTConvert+ManagedObject.m */,
 				141766F61B208D7700CCD6D9 /* CoreDataStack.h */,
 				141766F71B208D7700CCD6D9 /* CoreDataStack.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -118,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BE3DEE1AC21097009241FE /* RCTCoreData.m in Sources */,
+				39E6B5B11B2181F20063612C /* RCTConvert+ManagedObject.m in Sources */,
 				141766F81B208D7700CCD6D9 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

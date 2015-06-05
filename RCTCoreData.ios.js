@@ -15,20 +15,12 @@ var invariant = require('invariant');
  * High-level docs for the RCTCoreData iOS API can be written here.
  */
 
-var CHANGE = 'change';
-
 var RCTCoreData = {
-  load: function() {
-    AppStateIOS.addEventListener(CHANGE, this._handleAppStateChange);
+  add: function(options, callback) {
+    NativeRCTCoreData.add(options, callback);
   },
-  unload: function() {
-    AppStateIOS.removeEventListener(CHANGE, this._handleAppStateChange);
-  },
-  _handleAppStateChange: function(currentAppState) {
-    console.log(currentAppState);
-  },
-  test: function() {
-    NativeRCTCoreData.test();
+  fetch: function(options, callback) {
+    NativeRCTCoreData.fetch(options, callback);
   }
 };
 

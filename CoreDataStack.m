@@ -12,13 +12,6 @@
 
 @interface CoreDataStack ()
 
-@property (strong, nonatomic) NSString *dataModelName;
-
-@property (strong, nonatomic) NSManagedObjectContext *context;
-@property (strong, nonatomic) NSPersistentStoreCoordinator *coordinator;
-@property (strong, nonatomic) NSManagedObjectModel *model;
-@property (strong, nonatomic) NSPersistentStore *store;
-
 @end
 
 @implementation CoreDataStack
@@ -34,21 +27,23 @@
   return stack;
 }
 
+- (void)setupWithModelFileName:(NSString *)modelFileName {
+  if (self.modelFileName) return;
+  
+  self.modelFileName = modelFileName;
+  
+  [self store];
+}
+
 - (void)saveContext {
   NSError *error;
+
   if (self.context.hasChanges && ![self.context save:&error]) {
     NSLog(@"Could not save: %@, %@", error, error.userInfo);
   }
 }
 
 #pragma mark - Properties
-
-- (NSString *)dataModelName {
-  if (!_dataModelName) {
-    _dataModelName = @"";
-  }
-  return _dataModelName;
-}
 
 - (NSManagedObjectContext *)context {
   if (!_context) {
@@ -68,7 +63,7 @@
 - (NSManagedObjectModel *)model {
   if (!_model) {
     NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *modelURL = [bundle URLForResource:self.dataModelName withExtension:@"momd"];
+    NSURL *modelURL = [bundle URLForResource:self.modelFileName withExtension:@"momd"];
     _model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
   }
   return _model;
@@ -77,7 +72,7 @@
 - (NSPersistentStore *)store {
   if (!_store) {
     NSURL *documentsURL = [self applicationDocumentsDirectory];
-    NSURL *storeURL = [documentsURL URLByAppendingPathComponent:self.dataModelName];
+    NSURL *storeURL = [documentsURL URLByAppendingPathComponent:self.modelFileName];
     NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @(YES)};
     
     NSError *error;
